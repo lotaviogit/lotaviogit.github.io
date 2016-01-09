@@ -8,7 +8,6 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/custom.css" media="screen">
   </head>
   <body>
     <section class="page-header">
@@ -48,108 +47,6 @@
       </footer>
 
     </section>
-
-    <h1>Contoso Web Developer Conference</h1>
- <h2>Finding elements using jQuery</h2>
- <div>This session is about identifying elements using jQuery methods and selectors.</div>
- <h3>Rate this session</h3>
- <div id="rating-container">
-  <div class="rating-circle"></div>
-  <div class="rating-circle"></div>
-  <div class="rating-circle"></div>
-  <div class="rating-circle"></div>
-  <div class="rating-circle"></div>
- </div>
-
-<div id="max_value">
-  <p>Enter max value: </p>
-  <input type="text" class="update_max_text">
-  <input type="button" value="Update max value" class="update_max">
-</div>
-
- <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
-
- <script>
-      $(document).ready(function() {
-
-        // Test add div (Using id for rating-container)
-        // $("#rating-container").append('<div class="rating-circle"></div>');
-
-        // Create the global variable for the index of green dots
-        green_index = -1;
-
-        $('.rating-circle').mouseenter(function() {
-
-          var circ = $(this);
-
-          // Get only the indexes from before and until this element
-          var pos = $(".rating-circle").index(circ);
-          var index = 0;
-
-          $(".rating-circle").each(function() {
-            if (index <= pos)
-            {
-              // $(this).removeClass("rating-chosen");
-              $(this).addClass("rating-hover");
-            }
-            $(this).removeClass("rating-chosen");
-            index++;
-          });
-        });
-
-        $('.rating-circle').mouseleave(function() {
-          $(".rating-circle").each(function() {
-            $(this).removeClass("rating-hover");
-          });
-
-          // Check if we have green dots
-          if (green_index != -1)
-          {
-            var g = 0;
-            $(".rating-circle").each(function() {
-              if (g <= green_index)
-                $(this).addClass("rating-chosen");
-              g++;
-            });
-          }
-        });
-
-        $(".rating-circle").click(function() {
-          var circ = $(this);
-
-          // Get only the indexes from before and until this element
-          var pos = $(".rating-circle").index(circ);
-          var index = 0;
-
-          // Set the global green variable
-          green_index = pos;
-
-          $(".rating-circle").each(function() {
-            if (index <= pos)
-              $(this).addClass("rating-chosen");
-            else
-              $(this).removeClass("rating-chosen");
-            index++;
-          });
-        });
-
-        /**
-         * WEEK 2
-         */
-        $('.update_max').click(function() {
-          // console.log($(".update_max_text").val());
-          var times = $(".update_max_text").val();
-
-          for (var i = 0; i < times; i++)
-          {
-            $("#rating-container").append('<div class="rating-circle"></div>');
-            // $("#rating-container").append('<div class="rating-circle"></div>');
-          }
-        });
-
-      });
- </script>
-
   
   </body>
 </html>

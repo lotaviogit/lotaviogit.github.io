@@ -4,18 +4,19 @@ body {
   h1, h2, h3 {
    color: darkblue;
   }
-  .rating-circle {
-   height: 2em;
-   width: 2em;
+  .sliderItem {
+   height: 1em;
+   width: 1em;
    border: .1em solid black;
+   background-color: yellow;
    border-radius: 1.1em;
    display: inline-block;
    margin: 0;
    padding: .1em;
   }
 
-  .rating-hover {
-   background-color: yellow;
+  .selected_image {
+   background-color: black;
   }
 
   .rating-chosen {
